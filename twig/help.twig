@@ -1,0 +1,15 @@
+	<div class="modal-dialog modal-lg" role="document">
+	<!--<div class="modal-dialog modal-lg" role="document">-->
+		<div class="modal-content">
+			<div class="modal-body">
+				{% for diagnos in diagnosis %}
+					
+					{{ diagnos.Symptom }} -> {{ diagnos.Anamnes }} ->
+					{% for diagnos in diagnos.Diagnosis %}
+						<a onclick="show_about_diagnosis({{ diagnos.Id_diagnosis }})" href="#">{{ diagnos.Name }}</a> 
+					{% endfor %}
+					</br>
+				{% endfor %}
+			</div>
+		</div>
+	</div>

@@ -1,0 +1,116 @@
+	<div class="modal-dialog modal-lg" role="document">
+	<!--<div class="modal-dialog modal-lg" role="document">-->
+		<div class="modal-content">
+			<div class="modal-body">
+			<div class="container">
+					<div class="row border">
+						<div class="col border">
+							<h5>{{ more_info.Surname }} {{ more_info.Name }} {{ more_info.Patronymic }}</h5>
+						</div>
+						<div class="w-100"></div>
+						<div class="col-4 border">
+							<h6>Дата посещения</h6>
+						</div>
+						<div class="col-8 border">
+							<p>{{ more_info.Date }}</p>
+						</div>
+						<div class="w-100"></div>
+						<div class="col-4 border">
+							<h6>Жалобы</h6>
+						</div>
+						<div class="col-8 border">
+							<p>
+								{% for complaint in complaints %}
+									{{ complaint.Name}}, 
+								{% endfor %}
+							</p>
+						</div>
+						<div class="w-100"></div>
+						<div class="col-4 border">
+							<h6>Анамнез</h6>
+						</div>
+						<div class="col-8 border">
+							<p>
+								{% for anamnes in anamnesis %}
+									{{ anamnes.Name}}, 
+								{% endfor %}
+							</p>
+						</div>
+						<div class="w-100"></div>
+						<div class="col-4 border">
+							<h6>Осмотр</h6>
+						</div>
+						<div class="col-8 border">
+							<p>{{ more_info.Inspection }}</p>
+						</div>
+						<div class="w-100"></div>
+						<div class="col-4 border">
+							<h6>Диагноз</h6>
+						</div>
+						<div class="col-8 border">
+							<p>
+							{% if diagnosis %}
+								{{ diagnosis.Code_diagnosis}}.{{ diagnosis.Additional_code }} {{diagnosis.Name }}.{{ diagnosis.Name_additional }}
+							{% else %}
+								Диагноз не определён
+							{% endif %}
+							</p>
+						</div>
+						<div class="w-100"></div>
+						<div class="col-4 border">
+							<h6>Сопутствующие диагнозы</h6>
+						</div>
+						<div class="col-8 border">
+							<p> </p>
+						</div>
+						<div class="w-100"></div>
+						<div class="col-4 border">
+							<h6>Назначения</h6>
+						</div>
+						<div class="col-8 border">
+							<p>{{ more_info.Appointments }}</p>
+						</div>
+						<div class="w-100"></div>
+						<div class="col-4 border">
+							<h6>Обследования</h6>
+						</div>
+						<div class="col-8 border">
+							<p>
+							{% for Surveys_data in surveys %}
+									{{ Surveys_data.Name }}, 
+							{% endfor %}				
+							</p>
+						</div>
+						<div class="w-100"></div>
+						<div class="col-4 border">
+							<h6>Больничный лист</h6>
+						</div>
+						<div class="col-8 border">
+							<p>{{ more_info.List_data }}</p>
+						</div>
+						<div class="w-100"></div>
+						<div class="col-4 border">
+							<h6>Активное посещение</h6>
+						</div>
+						<div class="col-8 border">
+							<p>{{ more_info.Period_data }}</p>
+						</div>
+						<div class="w-100"></div>
+						<div class="col-4 border">
+							<h6>Повторная явка</h6>
+						</div>
+						<div class="col-8 border">
+							<p>{{ more_info.Reappearance }}</p>
+						</div>
+						<div class="w-100"></div>
+						<div class="col-4 border">
+						</div>
+						<div class="col-8 border">
+						<button type="button" class="btn btn-success btn-block" data-id="{{ more_info.Id_patient }}" id="more_information_card">Вернуться</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	

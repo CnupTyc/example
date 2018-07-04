@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Рабочая страница врача</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-grid.css" rel="stylesheet">
+	<link href="css/bootstrap-reboot.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+	<link href="css/login.css" rel="stylesheet">
+	<link href="css/daterangepicker.css" rel="stylesheet" >
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body class="bg-color" onload="save_date(); ticket_find();">
+
+<div class="container">
+	<div class="row center border">
+		<div class="col">
+			<div class="row border">
+				<div class="col-3 border"><h5>{{ user.FIO }}</h5> <h5>{{ user.Specialization }}</h5></div>
+				<div class="col-3 border">
+					<h5 name="date_today"></h5>
+				</div>
+				<div class="col-3 border">
+					<input type="text" class="form-control" id="date" name="date" placeholder="Дата" required>
+					<button type="submit" class="btn-success btn btn-block" onclick="ticket_find();">Просмотр расписания</button>
+				</div>
+				<div class="col-3 border">
+					<form method="post" action="/">
+						<button type="submit" class="btn-success btn btn-block">Сменить пользователя</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="w-100"></div>
+		<div class="col border">
+			<!--<button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal6"  onclick="edit_list();">Редактор справочников</button>-->
+		</div>
+		<div class="w-100"></div>
+		<div class="col-9 border ticket height_div">
+		</div>
+		<div class="col-3 border">
+			<label name="patient_name">Работа с пациентом: </br> <h6>Пациент не выбран</h6> </label>
+
+				<input type="hidden" id="ident" for="ident">
+				<input type="hidden" id="date_of_visit" for="date_of_visit">
+				<input type="hidden" id="save_date" for="save_date">
+				<input type="hidden" id="week_day" for="week_day">
+				<input type="hidden" id="id_doc" for="id_doc">
+				<input type="hidden" id="id_ticket" for="id_ticket">
+				<input type="hidden" id="id_visitation" for="id_visitation">
+				<input type="hidden" id="save_day" for="save_day">
+				<input type="hidden" id="save_hour" for="save_hour">
+				<input type="hidden" id="save_minute" for="save_minute">
+
+								
+				<div class="col border">
+					<button type="submit" class="btn-success btn btn-block" id="patient_data">Персональная карта</button>
+					</br>
+				</div>
+				<div class="col border">
+					<button type="submit" class="btn-success btn btn-block" id="patient_card_button">Амбулаторная карта</button>
+					</br>
+				</div>	
+				<div class="col border">
+					<button type="submit" class="btn-success btn btn-block" id="patient_list" name="patient_list">Список пациентов</button>
+					</br>
+				</div>	
+				<div class="col border">
+					<button type="submit" hidden class="btn-success btn btn-block" id="input_of_visit" name="input_of_visit">Результаты осмотра</button>
+				</div>			
+		</div>
+	</div>
+</div>
+
+	<footer>
+	</br></br></br>
+        <p>Developed by Suchorukov Vladislav &copy; 2018 </p>
+     </footer>
+	  
+	<script src="js/jquery.min.js"></script>
+	<script src="js/moment.min.js"></script>
+	<script src="js/daterangepicker.min.js"></script>	 
+	<script src="js/calendar.js"></script>
+	<script src="js/ticket_find.js"></script>
+	<script src="js/id_patient.js"></script>
+	<script src="js/create_ticket.js"></script>
+	<script src="js/create_protocol.js"></script>
+	<script src="js/delete_protocol_ticket.js"></script>	
+	<script src="js/save_date.js"></script>	
+	<script src="js/ticket_info.js"></script>	
+	<script src="js/ajax_block.js"></script>
+	<script src="js/ajax_find.js"></script>
+	<script src="js/help.js"></script>
+	<script src="js/menu.js"></script>
+	<script src="js/print.js"></script>	
+	<script src="js/options.js"></script>
+	<script src="js/enter_input_of_visit.js"></script>
+	<script src="js/edit_patient_info.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+
+  </body>
+</html>
+
+          

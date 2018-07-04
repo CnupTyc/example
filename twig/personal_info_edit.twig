@@ -1,0 +1,194 @@
+	<div class="modal-dialog modal-lg" role="document">
+	<!--<div class="modal-dialog modal-lg" role="document">-->
+		<div class="modal-content">
+			<div class="modal-body">
+			<table class="table table-condensed">
+					<thead>
+					  <tr>
+						<th colspan="2">Редактирование личной карты пациента</th>
+					  </tr>					
+					</thead>
+					<tbody>
+					  <tr>
+						<td>Фамилия</td>
+						<td><input type="text" class="form-control" id="Surname" for="Surname" placeholder="Фамилия" required value='{{ patient.Surname }}'></td>
+					  </tr>
+					  <tr>
+						<td>Имя</td>
+						<td><input type="text" class="form-control" id="Name" for="Name" placeholder="Имя" required value='{{ patient.Name }}'></td>
+					  </tr>
+					  <tr>
+						<td>Отчество</td>
+						<td><input type="text" class="form-control" id="Patronymic" for="Patronymic" placeholder="Отчество" required value='{{ patient.Patronymic }}'></td>
+					  </tr>
+					  <tr>
+						<td>Пол</td>
+						<td>
+							<select id="Sex_data_select" onchange="sex_change();">
+								<option>Мужской</option>
+								<option>Женский</option>
+							</select>	
+							<input type="text" readonly class="form-control" id="Sex_data" for="Sex_data" placeholder="Пол" required value='{{ patient.Sex_data }}'>
+							
+						</td>
+					  </tr>
+					  <tr>
+						<td>Дата рождения</td>
+						<td><input type="text" class="form-control" id="Date_born" for="Date_born" placeholder="Дата" required value='{{ patient.Date_born }}'></td>
+					  </tr>
+					  <tr>
+						<td>Номер истории болезней</td>
+							<td><input type="text" readonly class="form-control" id="Number_history" for="Number_history" placeholder="Номер истории болезней" required value='{{ patient.Number_history }}'></td>
+					  </tr>
+					  <tr>
+						<td>Дата открытия карты</td>
+							<td><input type="text" readonly class="form-control" id="Date_with" for="Date_with" placeholder="Дата открытия" required value='{{ patient.Date_with }}'></td>
+					  </tr>
+					  <tr>
+						<td>Дата закрытия карты</td>
+							<td><input type="text" readonly class="form-control" id="Date_before" for="Date_before" placeholder="Дата закрытия" required value='{{ patient.Date_before }}'></td>
+					  </tr>
+					  <tr>
+						<td>Серия и номер паспорта</td>
+						<td><input type="text" class="form-control" id="Series_number" for="Series_number" placeholder="Серия и номер" required value='{{ patient.Series_number }}'></td>
+					  </tr>
+					  <tr>
+						<td>Другие паспортные данные</td>
+						<td><input type="text" class="form-control" id="Passport" for="Passport" placeholder="Другие паспортные данные" required value='{{ patient.Passport }}'></td>
+					  </tr>
+					  <tr>
+						<td>СНИЛС</td>
+						<td><input type="text" class="form-control" id="SNILS" for="SNILS" placeholder="СНИЛС" required value='{{ patient.SNILS }}'></td>
+					  </tr>
+					  <tr>
+						<td>Номер медицинского полиса</td>
+						<td><input type="text" class="form-control" id="OMS" for="OMS" placeholder="ОМС" required value='{{ patient.OMS }}'></td>
+					  </tr>
+					  <tr>
+						<td>Компания-страховщик</td>
+						<td>
+							<select id="Id_insurer_data_select" onchange="company_cnahge();">
+								{% for company in company %}
+									<option>{{ company.Name }}</option>
+								{% endfor %}
+							</select>	
+							<input type="text" readonly class="form-control" id="Id_insurer_data" for="Id_insurer_data" placeholder="Компания-страховщик" required value='{{ patient.Id_insurer_data }}'>
+							
+						</td>	
+						</tr>
+					  <tr>
+						<td>Адрес прописки</td>
+						<td><input type="text" class="form-control" id="Address_propis" for="Address_propis" placeholder="Адрес прописки" required value='{{ patient.Address_propis }}'></td>
+					  </tr>
+					  <tr>
+						<td>Адрес проживания</td>
+						<td><input type="text" class="form-control" id="Address_living" for="Address_living" placeholder="Адрес проживания" required value='{{ patient.Address_living }}'></td>
+					  </tr>
+					  <tr>
+						<td>Участок</td>
+						<td>
+							<select id="Id_area_data_select" onchange="area_cnahge();">
+								{% for area in area %}
+									<option>{{ area.Number }}</option>
+								{% endfor %}
+							</select>
+							<input type="text" readonly class="form-control" id="Id_area_data" for="Id_area_data" placeholder="Участок" required value='{{ patient.Id_area_data }}'>
+							
+						</td>
+					  </tr>
+					  <tr>
+						<td>Место работы</td>
+						<td>
+							<select id="Id_organization_data_select" onchange="organization_cnahge();">
+								{% for organization in organization %}
+									<option>{{ organization.Name }}</option>
+								{% endfor %}
+							</select>
+							<input type="text" readonly class="form-control" id="Id_organization_data" for="Id_organization_data" placeholder="Место работы" required value='{{ patient.Id_organization_data }}'>
+								
+						</td>					
+						</tr>
+					  
+					  <tr>
+						<td>Причина прикрепления</td>
+						<td>
+							<select id="Reason_data_select" onchange="reason_cnahge();">
+								<option>По месту жительства</option>
+								<option>По заявлению</option>
+							</select>	
+							<input type="text" readonly class="form-control" id="Reason_data" for="Reason_data" placeholder="Причина прикрепления" required value='{{ patient.Reason_data }}'>
+							
+						</td>					  
+						</tr>
+					  <tr>
+						<td>Контактный телефон</td>
+						<td><input type="text" class="form-control" id="Phone" for="Phone" placeholder="Контактный телефон" required value='{{ patient.Phone }}'></td>
+					  </tr>
+					  <tr>
+						<td>Группа крови</td>
+						<td>
+							<select id="Id_blood_data_select" onchange="blood_cnahge();">
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>								
+							</select>
+							<input type="text" readonly class="form-control" id="Id_blood_data" for="Id_blood_data" placeholder="Группа крови" required value='{{ patient.Id_blood_data }}'>
+								
+						</td>			
+					  </tr>
+					  <tr>
+						<td>Rh-фактор</td>
+						<td>							
+							<select id="Rh_factor_data_select" onchange="rh_cnahge();">
+								<option>Положительный</option>
+								<option>Отрицательный</option>
+							</select>	
+							<input type="text" readonly class="form-control" id="Rh_factor_data" for="Rh_factor_data" placeholder="Rh-фактор" required value='{{ patient.Rh_factor_data }}'>
+
+						</td>			
+					  </tr>
+					  <tr>
+						<td>Аллергические реакции</td>
+						<td><input type="text" class="form-control" id="Alergic" for="Alergic" placeholder="Аллергические реакции" required value='{{ patient.Alergic }}'></td>
+					  </tr>		
+					  <tr>
+						<td>Группа инвалидности</td>
+						<td>
+							<select id="Id_disability_data_select" onchange="disability_cnahge();">
+								{% for gd in group_disability %}
+									<option>{{ gd.Number }}</option>
+								{% endfor %}
+							</select>
+							<input type="text" readonly class="form-control" id="Id_disability_data" for="Id_disability_data" placeholder="Группа инвалидности" required value='{{ patient.Id_disability_data }}'>
+								
+						</td>	
+						</tr>
+					  <tr>
+						<td>Статус пациента</td>
+						<td>
+							<select id="Id_state_data_select" onchange="state_cnahge();">
+								{% for state in state %}
+									<option>{{ state.Name }}</option>
+								{% endfor %}
+							</select>	
+							<input type="text" readonly class="form-control" id="Id_state_data" for="Id_state_data" placeholder="Статус пациента" required value={{ patient.Id_state_data }}>
+							
+						</td>					
+						</tr>
+					   <tr>
+						<td>ФИО ближайшего родственника</td>
+						<td><input type="text" class="form-control" id="FIO_relative" for="FIO_relative" placeholder="ФИО" required value='{{ patient.FIO_relative }}'></td>
+					  </tr>
+					   <tr>
+						<td>Телефон ближайшего родственника</td>
+						<td><input type="text" class="form-control" id="Phone_relative" for="Phone_relative" placeholder="Телефон" required value='{{ patient.Phone_relative }}'></td>
+					  </tr>
+					  <button type="submit" class="btn-success btn btn-block" id="edit_patient_info" onclick="edit_patient_info();">Применить изменения</button>
+
+					</tbody>	
+		</table>
+			</div>
+		</div>
+	</div>
+	
+<script src="js/calendar.js"></script>

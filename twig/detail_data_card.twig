@@ -1,0 +1,30 @@
+	<div class="modal-dialog modal-lg" role="document">
+	<!--<div class="modal-dialog modal-lg" role="document">-->
+		<div class="modal-content">
+			<div class="modal-body">
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th>Посещение</th>
+						<th>Время</th>
+						<th>ЛПУ</th>
+						<th>Врач</th>
+						<th>Подробнее</th>
+					<tr>
+				</thead>
+				
+				<tbody>
+					{% for data in card_list %}
+					<tr>
+						<td>{{ data.Date }}</td>
+						<td>{{ data.Hour }}:{{ data.Minute }}</td>
+						<td>{{ data.Name }}</td>
+						<td>{{ data.FIO }}</td>
+						<td><button type="submit" class="btn-success btn btn-block" id="more_info_detail" data-id="{{ data.Id_patient }}"  data-date="{{ data.Date }}" data-protocol="{{ data.Id_visitation }}">Подробнее</button></td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			</div>
+		</div>
+	</div>

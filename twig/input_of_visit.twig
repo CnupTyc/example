@@ -1,0 +1,117 @@
+<div class="container">
+	<div class="row border">
+		<div class="col border">
+			<h5>{{ fio.Surname }} {{ fio.Name }} {{ fio.Patronymic }}</h5> 
+		</div>
+		<div class="w-100"></div>
+		<div class="col-4 border">
+			<h6>Жалобы</h6>
+		</div>
+		<div class="col-8 border">
+			<select id="comp" onchange="options_complains()">
+				{% for complain in complaints %}
+					<option>{{ complain.Name }}</option>
+				{% endfor %}
+			</select>
+			<input id="input_comp" style="width:100%" type="text">
+		</div>
+		<div class="w-100"></div>
+		<div class="col-4 border">
+			<h6>Анамнез</h6>
+		</div>
+		<div class="col-8 border">
+			<select id="anam" onchange="anamnesis_complains()">
+				{% for anamnes in anamnesis %}
+					<option>{{ anamnes.Name }}</option>
+				{% endfor %}
+			</select>
+			<input id="input_anam" style="width:100%" type="text">
+		</div>
+		<div class="w-100"></div>
+		<div class="col-4 border">
+			<h6>Осмотр</h6>
+		</div>
+		<div class="col-8 border">
+			<input type="text" id="input_Inspection">
+		</div>
+		<div class="w-100"></div>
+		<div class="col-4 border">
+			<h6>Диагноз</h6>
+		</div>
+		<div class="col-8 border">
+			<select id="diag" onchange="diagnesis_complains()">
+				{% for diagnos in diagnosis %}
+					<option>{{ diagnos.Name }}.{{ diagnos.Name_additional }}</option>
+				{% endfor %}
+			</select>
+			<input id="input_diag" style="width:100%" type="text">
+		</div>
+		<div class="w-100"></div>
+		<div class="col-4 border">
+			<h6>Сопутствующие диагнозы</h6>
+		</div>
+		<div class="col-8 border">
+			<select id="sop_diag" onchange="sop_diag_complains()">
+				{% for diagnos in diagnosis %}
+					<option>{{ diagnos.Name }}.{{ diagnos.Name_additional }}</option>
+				{% endfor %}
+			</select>
+			<input id="input_sop_diag" style="width:100%" type="text">
+		</div>
+		<div class="w-100"></div>
+		<div class="col-4 border">
+			<h6>Назначения</h6>
+		</div>
+		<div class="col-8 border">
+			<input style="width:100%" type="text" id="input_appointments" name="input_appointments">
+		</div>
+		<div class="w-100"></div>
+		<div class="col-4 border">
+			<h6>Обследования</h6>
+		</div>
+		<div class="col-8 border">
+			<select id="surv" onchange="survey_change();">
+				{% for survey in surveys %}
+					<option>{{ survey.Name }}</option>
+				{% endfor %}
+			</select>
+			<input style="width:100%" id="input_surv" name="input_surv" for="input_surv" type="text">
+		</div>
+		<div class="w-100"></div>
+		<div class="col-4 border">
+			<h6>Больничный лист</h6>
+		</div>
+		<div class="col-8 border">
+			<h6>С <input type="text" id="date_with" name="date" placeholder="ГГГГ-ММ-ДД" required> по <input type="text" id="date_before" name="date" placeholder="ГГГГ-ММ-ДД" required></h6>
+		</div>
+		<div class="w-100"></div>
+		<div class="col-4 border">
+			<h6>Активное посещение</h6>
+		</div>
+		<div class="col-8 border">
+			<input type="text" id="active">
+		</div>
+		<div class="w-100"></div>
+		<div class="col-4 border">
+			<h6>Повторная явка</h6>
+		</div>
+		<div class="col-8 border">
+			<input type="text" id="repeat_date" name="date" placeholder="ГГГГ-ММ-ДД" required>
+		</div>
+		<div class="w-100"></div>
+		<div class="col-4 border">
+		</div>
+		<div class="col-8 border">
+			<button type="submit" class="btn-success btn" id="enter_input_of_visit" name="enter_input_of_visit">Готово</button>
+			<button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal6"  id="help">Система принятия решений</button>
+			<button type="submit" class="btn-success btn" id="print" name="print" onclick="print();">Печать</button>
+		</div>
+	</div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal help_content" id="modal6" tabindex="-1" role="dialog" aria-labelledby="modalLabel6" aria-hidden="true">
+
+</div>
+<script src="js/calendar.js"></script>

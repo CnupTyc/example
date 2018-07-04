@@ -1,0 +1,34 @@
+<table class="table table-condensed" id="doctors_table">
+	<thead>
+		<tr>
+			<th>Час</th>
+			<th>Минута</th>
+			<th>ФИО пациента</th>
+			<th>Примечания</th>
+		</tr>			
+	</thead>
+	<tbody>
+		{% for ticket in result %}
+		<tr>
+			<td>{{ ticket.Hour }}</td>
+			<td>{{ ticket.Minute }}</td>
+			<td><a onclick="save_id( {{ticket.Id_patient}}, '{{ ticket.Surname }}', '{{ ticket.Name }}', '{{ ticket.Patronymic }}'); save_ticket_info( '{{ date }}','{{ ticket.Hour }}', '{{ ticket.Minute }}', '{{ ticket.Id_work_day }}', '{{ ticket.Id_visitation }}' ); " href="#">{{ ticket.Surname }} {{ ticket.Name }} {{ ticket.Patronymic }}</a></td>
+			{% if date_obs %}
+				{% if ticket.Detail == "талон свободен" %}
+					<td><a class="ct" onclick="create_ticket( {{Id_doctor}}, {{ ticket.Hour }},  {{ ticket.Minute }}); " href="#">{{ ticket.Detail }}</a></td>
+				{% else %}
+					<td>{{ ticket.Detail }}</td>
+				{% endif %}
+			{% else %}
+				{% if ticket.Detail == "талон свободен" %}
+					<td>Запись невозможна</td>
+				{% else %}
+					<td>{{ ticket.Detail }}</td>
+				{% endif %}
+			{% endif %}
+			
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+

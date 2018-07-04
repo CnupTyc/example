@@ -1,0 +1,90 @@
+<div class="container">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#sertificate">Прививочный сертификат</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#result">Результаты обследований</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#signal_list">Сигнальный лист</a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="sertificate" class="container tab-pane active"><br>
+		<table class="table table-condensed">
+					<thead>
+						<tr>
+							<th>Наименование</th>
+							<th>Кратность прививки</th>
+							<th>Дата проведения</th>
+							<th>Наименование препарата</th>
+							<th>Серия</th>
+							<th>Наименование МО</th>
+						<tr>
+					</thead>
+			
+					<tbody>
+					{% for data in sertificate_list %}
+						<tr>
+							<td>{{ data.Medicine }}</td>
+							<td>{{ data.Multiplicity }}</td>
+							<td>{{ data.Date }}</td>
+							<td>{{ data.Medicine }}</td>
+							<td>{{ data.Series }}</td>
+							<td>{{ data.Name }}</td>
+						</tr>
+					{% endfor %}
+					</tbody>
+		</table>		
+    </div>
+    <div id="result" class="container tab-pane fade"><br>
+		<table class="table table-condensed">
+					<thead>
+						<tr>
+							<th>Дата</th>
+							<th>Тип обследования</th>
+							<th>Подробнее</th>
+						<tr>
+					</thead>
+			
+					<tbody>
+						{% for data in survey_list %}
+						<tr>
+							<td>{{ data.Date }}</td>
+							<td>{{ data.Name }}</td>
+							<td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal6" data-id="{{ id_patient }}" data-idsurvey="{{ data.Id_survey }}" id="survey">Подробнее</button></td>
+						</tr>
+						{% endfor %}
+					</tbody>
+		</table>		
+    </div>
+    <div id="signal_list" class="container tab-pane fade"><br>
+		<table class="table table-condensed">
+					<thead>
+						<tr>
+							<th>Дата вызова</th>
+							<th>Подробнее</th>
+						<tr>
+					</thead>
+			
+					<tbody>
+						{% for data in signal_list %}					
+						<tr>
+							<td>{{ data.Date }}</td>
+							<td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal6" data-id="{{ id_patient }}" data-idsignal="{{ data.Id_signal }}" id="signal">Подробнее</button></td>
+						</tr>
+						{% endfor %}
+					</tbody>
+		</table>
+    </div>
+  </div>
+</div>	
+
+<!-- Modal -->
+<div class="modal picture_content" id="modal6" tabindex="-1" role="dialog" aria-labelledby="modalLabel6" aria-hidden="true">
+
+</div>

@@ -1,0 +1,122 @@
+<table class="table table-condensed">
+					<thead>
+					  <tr>
+						<th colspan="2">
+							Просмотр личной карты пациента
+							<button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal6" id="show_patient_for_edit" data-id="{{ patient.Id_patient }}">Редактировать</button>
+						</th>
+					  </tr>					
+					</thead>
+					<tbody>
+					  <tr>
+						<td>Фамилия</td>
+						<td>{{ patient.Surname }}</td>
+					  </tr>
+					  <tr>
+						<td>Имя</td>
+						<td>{{ patient.Name }}</td>
+					  </tr>
+					  <tr>
+						<td>Отчество</td>
+						<td>{{ patient.Patronymic }}</td>
+					  </tr>
+					  <tr>
+						<td>Пол</td>
+						<td>{{ patient.Sex_data }}</td>
+					  </tr>
+					  <tr>
+						<td>Дата рождения</td>
+						<td>{{ patient.Date_born }}</td>
+					  </tr>
+					  <tr>
+						<td>Номер истории болезней</td>
+						<td>{{ patient.Number_history }}</td>
+					  </tr>
+					  <tr>
+						<td>Дата открытия карты</td>
+						<td>{{ patient.Date_with }}</td>
+					  </tr>
+					  <tr>
+						<td>Дата закрытия карты</td>
+						<td>{{ patient.Date_before }}</td>
+					  </tr>
+					  <tr>
+						<td>Серия и номер паспорта</td>
+						<td>{{ patient.Series_number }}</td>
+					  </tr>
+					  <tr>
+						<td>Другие паспортные данные</td>
+						<td>{{ patient.Passport }}</td>
+					  </tr>
+					  <tr>
+						<td>СНИЛС</td>
+						<td>{{ patient.SNILS }}</td>
+					  </tr>
+					  <tr>
+						<td>Номер медицинского полиса</td>
+						<td>{{ patient.OMS }}</td>
+					  </tr>
+					  <tr>
+						<td>Компания-страховщик</td>
+						<td>{{ patient.Id_insurer_data }}</td>
+					  </tr>
+					  <tr>
+						<td>Адрес прописки</td>
+						<td>{{ patient.Address_propis }}</td>
+					  </tr>
+					  <tr>
+						<td>Адрес проживания</td>
+						<td>{{ patient.Address_living }}</td>
+					  </tr>
+					  <tr>
+						<td>Участок</td>
+						<td>{{ patient.Id_area_data }}</td>
+					  </tr>
+					  <tr>
+						<td>Место работы</td>
+						<td>{{ patient.Id_organization_data }}</td>
+					  </tr>
+					  
+					  <tr>
+						<td>Причина прикрепления</td>
+						<td>{{ patient.Reason_data}}</td>
+					  </tr>
+					  <tr>
+						<td>Контактный телефон</td>
+						<td>{{ patient.Phone }}</td>
+					  </tr>
+					  <tr>
+						<td>Группа крови</td>
+						<td>{{ patient.Id_blood_data }}</td>
+					  </tr>
+					  <tr>
+						<td>Rh-фактор</td>
+						<td>{{ patient.Rh_factor_data }}</td>
+					  </tr>
+					  <tr>
+						<td>Аллергические реакции</td>
+						<td>{{ patient.Alergic }}</td>
+					  </tr>		
+					  <tr>
+						<td>Группа инвалидности</td>
+						<td>{{ patient.Id_disability_data }}</td>
+					  </tr>
+					  <tr>
+						<td>Статус пациента</td>
+						<td>{{ patient.Id_state_data }}</td>
+					  </tr>
+					   <tr>
+						<td>ФИО ближайшего родственника</td>
+						<td>{{ patient.FIO_relative }}</td>
+					  </tr>
+					   <tr>
+						<td>Телефон ближайшего родственника</td>
+						<td>{{ patient.Phone_relative }}</td>
+					  </tr>
+					</tbody>	
+		</table>
+		
+<!-- Modal -->
+<div class="modal personal_info_edit" id="modal6" tabindex="-1" role="dialog" aria-labelledby="modalLabel6" aria-hidden="true">
+
+</div>

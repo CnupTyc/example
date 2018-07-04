@@ -1,0 +1,48 @@
+	<div class="modal-dialog modal-lg" role="document">
+	<!--<div class="modal-dialog modal-lg" role="document">-->
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="container">
+					<div class="row border">
+						<div class="col">
+							<div class="row border">
+								<div class="col-6 border">
+									<p>Выберите справочник</p>
+									<select>
+										{% for list in lists %}
+											<option>{{ list.Name }}</option>
+										{% endfor %}
+										
+									</select>
+								</div>
+								<div class="col-6 border">
+									<p>Выберите поле</p>
+									<select>
+										<option>1</option>
+										<option>2</option>
+									</select>
+									<input type="text" id=" " for=" ">
+									<button type="submit" class="btn-success btn btn" id="">Редактировать</button>
+									<button type="submit" class="btn-success btn btn" id="">Удалить</button>
+								</div>
+							</div>
+						</div>
+						<div class="w-100"></div>
+						<div class="col">
+							<div class="row border">
+
+								<div class="col-6 border">
+									3
+								</div>
+								<div class="col-6 border">
+									<input type="text" id=" " for=" ">
+									<button type="submit" class="btn-success btn btn" id="">Добавить</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	

@@ -1,0 +1,32 @@
+<table class="table table-condensed">
+	<thead>
+		<tr>
+			<th>Фамилия</th>
+			<th>Имя</th>
+			<th>Отчество</th>
+		<tr>
+	</thead>
+	<tbody>
+		{% for patient in patients %}
+			<tr>
+				<td>{{ patient.Surname }}</td>
+				<td>{{ patient.Name }}</td>
+				<td>{{ patient.Patronymic }}</td>
+				<td>					
+					<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal6" data-id="{{ patient.Id_patient }}" id="more_information">Данные</button>
+				</td>
+				<td>					
+					<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal6" data-id="{{ patient.Id_patient }}" id="more_information_card">Карта</button>
+				</td>
+				<td>					
+					<button onclick="create_protocol( {{ patient.Id_patient }} ); "type="submit" class="btn-success btn btn" id="accept">Записать на приём</button>
+				</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal personal_content" id="modal6" tabindex="-1" role="dialog" aria-labelledby="modalLabel6" aria-hidden="true">
+
+</div>

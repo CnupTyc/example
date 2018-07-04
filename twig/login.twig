@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Авторизация</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-grid.css" rel="stylesheet">
+	<link href="css/bootstrap-reboot.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+	<link href="css/login.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body class="bg-color">
+
+  
+<div class="container-fluid">
+	<div class="row center">
+		<div class="col-5"></div>
+		<div class="col-4">
+		<form method="POST" action="/work_page">
+		  <div class="row form-group">
+			<div class="col-5">
+				<input required name="Login"  type="text" class="form-control" placeholder="Login">
+			</div>
+			<div class="w-100"></div>
+			<div class="col-5">
+				<input required name="Password"  type="password" class="form-control" placeholder="Password">
+			</div>
+		  </div>
+		  <h6 class="error">{{ NotLogin }}</h6>
+		  <button type="submit" class="btn btn btn-default">Войти</button>
+		  
+		</form>
+		</div>
+	</div>
+</div>
+
+
+	<footer>
+        <p>Developed by Suchorukov Vladislav &copy; 2018 </p>
+     </footer>
+	  
+	<script src="js/bootstrap.js"></script>
+	<script src="js/jquery.min.js"></script>
+		  
+  </body>
+</html>
+
+          
